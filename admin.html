@@ -1,0 +1,152 @@
+  <main class="section" style="max-width:700px;margin:32px auto;">
+    <h1>Panel de administración</h1>
+    <h2>Productos</h2>
+    <div id="admin-products" class="cards"></div>
+    <h2>Agregar nuevo producto</h2>
+    <form id="addProductForm" style="display:flex;flex-direction:column;gap:10px;max-width:400px;">
+      <input type="text" id="newProdName" placeholder="Nombre del producto" required>
+      <input type="text" id="newProdDesc" placeholder="Descripción" required>
+      <input type="text" id="newProdImg" placeholder="Ruta de imagen (images/...)" required>
+      <button class="btn primary" type="submit">Agregar producto</button>
+    </form>
+  </main>
+  <script>
+    // CRUD con localStorage
+    function getProducts() {
+      return JSON.parse(localStorage.getItem('productos')||'[]');
+    }
+    function saveProducts(arr) {
+      localStorage.setItem('productos',JSON.stringify(arr));
+    }
+    function renderAdminProducts() {
+      const cont = document.getElementById('admin-products');
+      cont.innerHTML = '';
+      const productos = getProducts();
+      if(productos.length === 0) {
+        cont.innerHTML = '<p style="color:#888">No hay productos.</p>';
+        return;
+      }
+      productos.forEach((prod,i)=>{
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `<img src="${prod.img}" alt="${prod.name}" style="width:120px;cursor:pointer;" onclick="alert('${prod.desc}')"><p>${prod.name}</p><small>${prod.desc}</small><div class='btn-row'><button class='btn' onclick='editProduct(${i})'>Editar</button><button class='btn' onclick='deleteProduct(${i})'>Eliminar</button></div>`;
+        cont.appendChild(div);
+      });
+    }
+    function editProduct(idx) {
+      const productos = getProducts();
+      const prod = productos[idx];
+      const desc = prompt('Editar descripción:', prod.desc);
+      if(desc !== null) {
+        prod.desc = desc;
+        saveProducts(productos);
+        renderAdminProducts();
+      }
+    }
+    function deleteProduct(idx) {
+      const productos = getProducts();
+      productos.splice(idx,1);
+      saveProducts(productos);
+      renderAdminProducts();
+    }
+    document.getElementById('addProductForm').onsubmit = function(e) {
+      e.preventDefault();
+      const name = document.getElementById('newProdName').value.trim();
+      const desc = document.getElementById('newProdDesc').value.trim();
+      const img = document.getElementById('newProdImg').value.trim();
+      if(!name || !desc || !img) return;
+      const productos = getProducts();
+      productos.push({name,desc,img});
+      saveProducts(productos);
+      renderAdminProducts();
+      this.reset();
+    }
+    renderAdminProducts();
+  </script>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin - Josbet Florist</title>
+  <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body class="menu-page">
+  <header class="site-header">
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="menu.html">Tienda</a></li>
+        <li><a href="#admin">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section" style="max-width:700px;margin:32px auto;">
+    <h1>Panel de administración</h1>
+    <h2>Productos</h2>
+    <div id="admin-products" class="cards"></div>
+    <h2>Agregar nuevo producto</h2>
+    <form id="addProductForm" style="display:flex;flex-direction:column;gap:10px;max-width:400px;">
+      <input type="text" id="newProdName" placeholder="Nombre del producto" required>
+      <input type="text" id="newProdDesc" placeholder="Descripción" required>
+      <input type="text" id="newProdImg" placeholder="Ruta de imagen (images/...)" required>
+      <button class="btn primary" type="submit">Agregar producto</button>
+    </form>
+  </main>
+
+  <script>
+    // CRUD con localStorage
+    function getProducts() {
+      return JSON.parse(localStorage.getItem('productos')||'[]');
+    }
+    function saveProducts(arr) {
+      localStorage.setItem('productos',JSON.stringify(arr));
+    }
+    function renderAdminProducts() {
+      const cont = document.getElementById('admin-products');
+      cont.innerHTML = '';
+      const productos = getProducts();
+      if(productos.length === 0) {
+        cont.innerHTML = '<p style="color:#888">No hay productos.</p>';
+        return;
+      }
+      productos.forEach((prod,i)=>{
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `<img src="${prod.img}" alt="${prod.name}" style="width:120px;cursor:pointer;" onclick="alert('${prod.desc}')"><p>${prod.name}</p><small>${prod.desc}</small><div class='btn-row'><button class='btn' onclick='editProduct(${i})'>Editar</button><button class='btn' onclick='deleteProduct(${i})'>Eliminar</button></div>`;
+        cont.appendChild(div);
+      });
+    }
+    function editProduct(idx) {
+      const productos = getProducts();
+      const prod = productos[idx];
+      const desc = prompt('Editar descripción:', prod.desc);
+      if(desc !== null) {
+        prod.desc = desc;
+        saveProducts(productos);
+        renderAdminProducts();
+      }
+    }
+    function deleteProduct(idx) {
+      const productos = getProducts();
+      productos.splice(idx,1);
+      saveProducts(productos);
+      renderAdminProducts();
+    }
+    document.getElementById('addProductForm').onsubmit = function(e) {
+      e.preventDefault();
+      const name = document.getElementById('newProdName').value.trim();
+      const desc = document.getElementById('newProdDesc').value.trim();
+      const img = document.getElementById('newProdImg').value.trim();
+      if(!name || !desc || !img) return;
+      const productos = getProducts();
+      productos.push({name,desc,img});
+      saveProducts(productos);
+      renderAdminProducts();
+      this.reset();
+    }
+    renderAdminProducts();
+  </script>
+</body>
+</html>

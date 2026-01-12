@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Josbet - Tienda</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body class="menu-page">
   <header class="site-header">
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#carrito">Carrito</a></li>
+        <li><a href="#carrito">Carrito <span id="cart-count" style="background:var(--accent);color:#fff;padding:2px 8px;border-radius:10px;font-size:0.95em;">0</span></a></li>
         <li><a href="#catalogo">Catálogo</a></li>
         <li><a href="pedido-personalizado.html">Pedido personalizado</a></li>
+        <li><a href="#" id="admin-link" style="color:#b36be9;font-weight:700;">Entrar como admin</a></li>
       </ul>
     </nav>
   </header>
@@ -24,36 +25,137 @@
   </section>
 
   <section id="mas-populares" class="section">
-    <h2>Más populares</h2>
-    <div class="cards">
-      <div class="card"><img src="images/sunflower.jpg" alt="Girasol"><p>Girasol eterno</p></div>
-      <div class="card"><img src="images/tulip.jpg" alt="Tulipán"><p>Tulipanes eternos</p></div>
-      <div class="card"><img src="images/rose.jpg" alt="Rosa"><p>Rosas eternas</p></div>
-    </div>
+        <div style="text-align:center; margin-bottom:18px;">
+          <h2 style="font-size:2.3rem; color:var(--accent); margin-bottom:0.3em; letter-spacing:2px; text-shadow:0 2px 12px #ffd1e8;">Descubre nuestro catálogo</h2>
+          <p style="font-size:1.18rem; color:#6b3350; margin-bottom:0.7em;">Elige entre flores y arreglos únicos, hechos con amor para cada ocasión especial. 🌸✨</p>
+          <div style="font-size:1.05rem; color:var(--lila-200); margin-bottom:1.2em;">¡Haz tu pedido y alegra tu día o el de alguien más!</div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <img src="images/Girasol_Eterno.jpg" alt="Girasol eterno">
+            <p>Girasol eterno</p>
+            <small>Flor artificial de alta calidad, ideal para regalar y decorar. 🌻</small>
+          </div>
+          <div class="card">
+            <img src="images/Tulipan_Eterno.jpg" alt="Tulipanes eternos">
+            <p>Tulipanes eternos</p>
+            <small>Colores vibrantes y duraderos, perfectos para cualquier ocasión. 🌷</small>
+          </div>
+          <div class="card">
+            <img src="images/Rosas_Eternas.jpg" alt="Rosas eternas">
+            <p>Rosas eternas</p>
+            <small>Románticas y elegantes, nunca se marchitan. 🌹</small>
+          </div>
+          <div class="card">
+            <img src="images/Flor_Unica.jpg" alt="Flor única 1">
+            <p>Flor única 1</p>
+            <small>Flor decorativa para detalles y arreglos pequeños.</small>
+          </div>
+          <div class="card">
+            <img src="images/Flor_Unica_2jpg.jpg" alt="Flor única 2">
+            <p>Flor única 2</p>
+            <small>Ideal para centros de mesa y regalos personalizados.</small>
+          </div>
+          <div class="card">
+            <img src="images/Flor_Unica_3.jpg" alt="Flor única 3">
+            <p>Flor única 3</p>
+            <small>Flor exótica para decoración especial.</small>
+          </div>
+          <div class="card">
+            <img src="images/Ramo-Clasico.jpg" alt="Ramo clásico">
+            <p>Ramo clásico</p>
+            <small>Ramo tradicional, perfecto para cualquier evento.</small>
+          </div>
+          <div class="card">
+            <img src="images/Ramo_Moderno.jpg" alt="Ramo moderno">
+            <p>Ramo moderno</p>
+            <small>Diseño contemporáneo y elegante.</small>
+          </div>
+          <div class="card">
+            <img src="images/Ramo_Deluxe.jpg" alt="Ramo deluxe">
+            <p>Ramo deluxe</p>
+            <small>El ramo más exclusivo y sofisticado.</small>
+          </div>
+        </div>
   </section>
 
   <section id="flores-individuales" class="section">
-    <h2>Flores individuales</h2>
-    <div class="cards">
-      <div class="card"><img src="images/single1.jpg" alt="Flor individual"><p>Flor única 1</p></div>
-      <div class="card"><img src="images/single2.jpg" alt="Flor individual"><p>Flor única 2</p></div>
-      <div class="card"><img src="images/single3.jpg" alt="Flor individual"><p>Flor única 3</p></div>
-    </div>
+    <!-- Sección eliminada: solo se muestran productos desde localStorage -->
   </section>
 
   <section id="tipos-ramos" class="section">
-    <h2>Tipos de ramos</h2>
-    <div class="cards">
-      <div class="card"><p>Ramo clásico</p></div>
-      <div class="card"><p>Ramo moderno</p></div>
-      <div class="card"><p>Ramo deluxe</p></div>
-    </div>
+    <!-- Sección eliminada: solo se muestran productos desde localStorage -->
   </section>
 
   <footer class="site-footer">
+          <!-- Formulario de agregar producto eliminado: solo admin.html tiene CRUD -->
+        <div class="section" style="max-width:500px;margin:32px auto 0 auto;">
+          <h2 style="margin-bottom:10px;">🌟 Recomendaciones</h2>
+          <ul style="color:#6b3350;font-size:1.08em;line-height:1.7;">
+            <li>¡Aprovecha los arreglos personalizados para fechas especiales!</li>
+            <li>Combina diferentes flores para crear tu propio ramo único.</li>
+            <li>Consulta nuestro catálogo para más opciones y sorpresas.</li>
+          </ul>
+        </div>
     <p>© Josbet Florist</p>
+    <div id="cart-message" style="margin-top:10px;color:var(--accent);font-weight:600;"></div>
+    <div class="section" style="max-width:500px;margin:32px auto 0 auto;">
+      <!-- Carrito eliminado: solo productos -->
+    </div>
   </footer>
 
-  <script src="js/main.js"></script>
+</body>
+
+  <!-- Modal para login de admin -->
+  <div id="admin-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.25);z-index:1000;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:32px 28px 22px 28px;border-radius:18px;box-shadow:0 8px 32px #b3e5fc;max-width:340px;width:90%;text-align:center;position:relative;">
+      <button id="close-admin-modal" style="position:absolute;top:10px;right:14px;background:none;border:none;font-size:1.3em;color:#b36be9;cursor:pointer;">&times;</button>
+      <h2 style="color:var(--accent);margin-bottom:18px;">Acceso administrador</h2>
+      <input type="password" id="admin-pass" placeholder="Contraseña" style="width:100%;padding:0.7em;border-radius:8px;border:1.5px solid #e1bee7;margin-bottom:18px;">
+      <div id="admin-error" style="color:#e53935;font-size:1em;height:1.5em;"></div>
+      <button id="admin-login-btn" class="btn primary" style="width:100%;">Entrar</button>
+    </div>
+  </div>
+
+  <script>
+    // ...existing code...
+    // Modal admin login
+    const adminLink = document.getElementById('admin-link');
+    const adminModal = document.getElementById('admin-modal');
+    const closeAdminModal = document.getElementById('close-admin-modal');
+    const adminLoginBtn = document.getElementById('admin-login-btn');
+    const adminPass = document.getElementById('admin-pass');
+    const adminError = document.getElementById('admin-error');
+    adminLink.onclick = function(e) {
+      e.preventDefault();
+      adminModal.style.display = 'flex';
+      adminPass.value = '';
+      adminError.textContent = '';
+      adminPass.focus();
+    };
+    closeAdminModal.onclick = function() {
+      adminModal.style.display = 'none';
+    };
+    adminLoginBtn.onclick = function() {
+      if(adminPass.value === 'admin123') {
+        window.location.href = 'admin.html';
+      } else {
+        adminError.textContent = 'Contraseña incorrecta';
+      }
+    };
+    adminPass.addEventListener('keydown', function(e) {
+      if(e.key === 'Enter') adminLoginBtn.click();
+    });
+    // Cerrar modal al hacer click fuera
+    adminModal.addEventListener('click', function(e) {
+      if(e.target === adminModal) adminModal.style.display = 'none';
+    });
+  </script>
+</html>
+
+  <script>
+  <script>
+    // Catálogo visual fijo. No se requiere JS para mostrar productos.
+  </script>
 </body>
 </html>

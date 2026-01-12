@@ -4,24 +4,45 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Iniciar sesión - Josbet</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body class="form-page">
-  <main class="center-card">
-    <h2>Iniciar sesión</h2>
-    <form id="loginForm">
-      <label>Correo
-        <input type="email" name="email" required>
+  <main class="center-card login-card">
+    <div class="login-illustration">
+      <img src="images/rose.jpg" alt="Flor" style="width:80px;height:80px;border-radius:50%;box-shadow:0 2px 12px #ffd1e8;animation:float 2.5s infinite alternate;">
+    </div>
+    <h2 style="margin-bottom:0.5rem;">Bienvenido de nuevo</h2>
+    <p style="color:#b39ddb;margin-bottom:1.5rem;font-size:1.08rem;">Accede a tu cuenta para descubrir la magia floral</p>
+    <form id="loginForm" class="login-form">
+      <label style="color:#7e57c2;font-weight:600;">Correo
+        <input type="email" name="email" required placeholder="ejemplo@correo.com" style="background:var(--blue-100);">
       </label>
-      <label>Contraseña
-        <input type="password" name="password" required>
+      <label style="color:#7e57c2;font-weight:600;">Contraseña
+        <input type="password" name="password" required placeholder="••••••••" style="background:var(--lila-100);">
       </label>
       <div class="btn-row">
-        <button class="btn primary" type="submit">Entrar</button>
-        <a class="btn" href="register.html">Crear cuenta</a>
+        <a class="btn primary" href="menu.html" style="font-size:1.1rem;">Entrar</a>
+        <a class="btn" href="register.html" style="background:var(--lila-200);color:#fff;">Crear cuenta</a>
       </div>
     </form>
   </main>
+  <style>
+    .login-card {animation: fadeinlogin 1.2s;}
+    @keyframes fadeinlogin {from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes float {from{transform:translateY(0);}to{transform:translateY(-18px);}}
+    .login-form input[type="email"], .login-form input[type="password"] {
+      border:1.5px solid #e1bee7;
+      margin-bottom:1.1rem;
+      font-size:1.08rem;
+      transition:box-shadow .18s;
+    }
+    .login-form input[type="email"]:focus, .login-form input[type="password"]:focus {
+      outline:none;
+      box-shadow:0 0 0 2px #b3e5fc;
+      border-color:#b3e5fc;
+    }
+    .login-illustration {margin-bottom:1.2rem;}
+  </style>
   <script src="js/main.js"></script>
 </body>
 </html>
